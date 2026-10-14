@@ -50,12 +50,20 @@ No frontend, database, or web server required.
   `tessdata/eng.traineddata`. Not included in the repository; see "Tesseract"
   below.
 
-Setup currently installs `pymupdf`, `pillow`, and `pytesseract` from
-`requirements.txt`. The active renamer calls `tesseract.exe` directly via
-`subprocess` and parses the TSV output itself, so it does **not** use
-`pytesseract`; the supplied `SanityCheck.ps1` still imports it as part of its
-environment check. References to `pytesseract` in old snapshots under
-`Archived/` predate the current direct-subprocess design.
+Setup installs two Python dependencies from `requirements.txt`:
+
+- `pymupdf` — opens PDFs and renders pages for OCR.
+- `pillow` — creates, rotates, crops, and preprocesses images.
+
+The renamer calls the separately supplied `tesseract.exe` directly through
+Python's standard-library `subprocess` module and parses its TSV output.
+The `pytesseract` wrapper is not required or installed by setup.
+
+`SanityCheck.ps1` checks the active Python dependencies, dependency
+consistency, the Tesseract executable, and English language availability.
+
+Historical snapshots under `Archived/` may still reference `pytesseract`.
+Those snapshots are not part of the active workflow.
 
 ## Setup (internet required)
 
