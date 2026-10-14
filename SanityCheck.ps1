@@ -3,7 +3,7 @@ $ErrorActionPreference = "Stop"
 $Python = Join-Path $PSScriptRoot "venv\Scripts\python.exe"
 try {
     if (!(Test-Path -LiteralPath $Python)) { throw 'Run SetupEnvironment.bat first.' }
-    & $Python -c "import sys, pymupdf, PIL, pytesseract; print('Python:', sys.executable); print('Imports: OK')"
+    & $Python -c "import sys, pymupdf; from PIL import Image, ImageOps; print('Python:', sys.executable); print('Imports: OK')"
     if ($LASTEXITCODE -ne 0) { throw 'Python or package imports failed.' }
     & $Python -m pip check
     if ($LASTEXITCODE -ne 0) { throw 'Dependency consistency check failed.' }
