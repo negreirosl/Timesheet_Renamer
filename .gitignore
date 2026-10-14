@@ -1,0 +1,34 @@
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Local virtual environment
+venv/
+ENV/
+env/
+
+# OCR debug outputs and runtime run directories
+debug/
+
+# Ignore contents of tools/ but keep the directory tracked
+tools/*
+!tools/README.txt
+
+# Keep Archived folder tracked in Git
+!Archived/
+Archived/*
+!Archived/*.py
+
+# Input and output data folders (keep private PDFs out of git, preserve placeholder)
+input/*
+!input/PLACE_PDFS_HERE.txt
+Timesheets/
+!Timesheets/.gitkeep
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
